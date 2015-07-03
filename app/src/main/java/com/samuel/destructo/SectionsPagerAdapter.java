@@ -20,7 +20,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return MainActivity.PlaceholderFragment.newInstance(position+1);
+
+        switch(position){
+            case 0:
+                return new InboxFragment();
+            case 1:
+                return new FriendsFragment();
+        }
+        return null;
     }
 
     @Override
