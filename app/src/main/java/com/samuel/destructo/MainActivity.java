@@ -89,6 +89,10 @@ public class MainActivity extends ActionBarActivity {
             navigateToLogin();
             return true;
         }
+        else if(itemId == R.id.action_edit_friends){
+            Intent intent = new Intent(this, EditFriendsActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
