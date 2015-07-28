@@ -23,7 +23,6 @@ public class LoginActivity extends ActionBarActivity {
     protected EditText mUsername;
     protected EditText mPassword;
     protected Button mLoginButton;
-
     protected TextView mSignUpTextView;
 
     @Override
@@ -47,7 +46,7 @@ public class LoginActivity extends ActionBarActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //The user has clicked the button
+                //The user has clicked the log in button
                 String username = mUsername.getText().toString();
                 String password = mPassword.getText().toString();
 

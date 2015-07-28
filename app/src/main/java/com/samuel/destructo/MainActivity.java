@@ -20,6 +20,7 @@ import com.parse.ParseUser;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -51,10 +52,30 @@ public class MainActivity extends ActionBarActivity {
         final ActionBar actionBar = getSupportActionBar();
         mSectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
 
-        //Set up ViewPAger with sections adapter
+        //Set up ViewPager with sections adapter
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+    }
 
+    /*
+    The following method is a result of a user action, originally intended to happen after the user
+        has taken a picture or video, but in this case it will be after a contact is selected from
+        the contact fragment.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //Media stuff
+        /*if(resultCode == RESULT_OK){
+
+        }else if(resultCode != RESULT_CANCELED){
+            Toast.makeText(this, R.string.general_error, Toast.LENGTH_LONG).show();
+        }*/
+
+        Intent recipientsIntent = new Intent(this, RecipientsActivity.class);
+        //recipientsIntent.setData(mMediaUri);
+        startActivity(recipientsIntent);
     }
 
     private void navigateToLogin() {

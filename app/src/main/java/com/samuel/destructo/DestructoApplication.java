@@ -14,9 +14,8 @@ public class DestructoApplication extends Application {
     public void onCreate(){
 
         super.onCreate();
-        // Enable Local Datastore.
+        ParseObject.registerSubclass(Message.class);
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "XNHlmxnyTqPoEHAVyrZusQFDmQMuBkWzjhpoil2s", "7aKni4WIUQSPYKjVafp5Lax88nptCekY2XUmzwAe");
-
     }
 }
