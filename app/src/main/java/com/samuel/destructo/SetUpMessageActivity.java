@@ -33,6 +33,7 @@ public class SetUpMessageActivity extends ActionBarActivity {
     private Button sendButton;
     private ListView listChat;
     private String strUserId;
+    private String strRecipientId;
     private ArrayList<Message> mMessages;
     private MessageListAdapter mAdapter;
 
@@ -42,10 +43,13 @@ public class SetUpMessageActivity extends ActionBarActivity {
         setContentView(R.layout.activity_set_up_message);
 
         Intent intent = getIntent();
+        Bundle extra = getIntent().getExtras();
         strUserId = ParseUser.getCurrentUser().getObjectId();
 
         if(intent.hasExtra("sendTo")){
             Log.e(TAG, "Success");
+            //strRecipientId = intent.getExtras().toString();
+            strRecipientId = extra.getString("sendTo");
             createMessage();
         }
 
@@ -80,6 +84,7 @@ public class SetUpMessageActivity extends ActionBarActivity {
                 //ParseObject message = new ParseObject("Message");
                 Message outMessage = new Message();
                 outMessage.put("userId", strUserId);
+                outMessage.put("recipientId", strRecipientId);
                 outMessage.put("body", data);
                 outMessage.saveInBackground(new SaveCallback() {
                     @Override
