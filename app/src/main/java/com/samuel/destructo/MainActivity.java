@@ -1,27 +1,16 @@
 package com.samuel.destructo;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
-
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -57,6 +46,7 @@ public class MainActivity extends ActionBarActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
     }
 
+
     /*
     The following method is a result of a user action, originally intended to happen after the user
         has taken a picture or video, but in this case it will be after a contact is selected from
@@ -81,9 +71,7 @@ public class MainActivity extends ActionBarActivity {
     private void navigateToLogin() {
         //Go to log in activity
         Intent intent = new Intent(this, LoginActivity.class);
-        //A flag is needed to skip the MainAcitivty from showing up?
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //Clear the task so that we cant back arrow into it
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
