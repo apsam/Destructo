@@ -46,10 +46,10 @@ public class SetUpMessageActivity extends ActionBarActivity {
         Bundle extra = getIntent().getExtras();
         strUserId = ParseUser.getCurrentUser().getObjectId();
 
-        if(intent.hasExtra("sendTo")){
+        if(intent.hasExtra("recipientId")){
             Log.e(TAG, "Success");
             //strRecipientId = intent.getExtras().toString();
-            strRecipientId = extra.getString("sendTo");
+            strRecipientId = extra.getString("recipientId");
             createMessage();
         }
 
