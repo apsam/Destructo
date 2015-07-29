@@ -1,12 +1,14 @@
 package com.samuel.destructo;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.parse.FindCallback;
@@ -74,6 +76,17 @@ public class FriendsFragment extends ListFragment{
                     dialog.show();
                 }
 
+            }
+        });
+
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ParseUser userClicked = mFriends.get(position);
+                Intent intent = new Intent(FriendsFragment.this.getActivity(), SetUpMessageActivity.class);
+                intent.putExtra("sendTo", userClicked.getUsername()); // To add the contact the message is being sent to
+                intent.putExtra("recipientId", userClicked.getObjectId());
+                startActivity(intent);
             }
         });
 

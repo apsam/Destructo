@@ -1,6 +1,7 @@
 package com.samuel.destructo;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -12,11 +13,10 @@ public class DestructoApplication extends Application {
 
     @Override
     public void onCreate(){
-
         super.onCreate();
-        // Enable Local Datastore.
+        ParseObject.registerSubclass(Message.class);
         Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "XNHlmxnyTqPoEHAVyrZusQFDmQMuBkWzjhpoil2s", "7aKni4WIUQSPYKjVafp5Lax88nptCekY2XUmzwAe");
 
+        Parse.initialize(this, DestructoKeys.AUTH_KEY, DestructoKeys.AUTH_SECRET);
     }
 }

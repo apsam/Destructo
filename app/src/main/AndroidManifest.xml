@@ -40,6 +40,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.samuel.destructo.MainActivity" />
         </activity>
+        <activity
+            android:name=".RecipientsActivity"
+            android:label="@string/title_activity_recipients"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.samuel.destructo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SetUpMessageActivity"
+            android:label="@string/title_activity_set_up_message" >
+        </activity>
     </application>
 
 </manifest>
