@@ -85,6 +85,7 @@ public class FriendsFragment extends ListFragment{
                 ParseUser userClicked = mFriends.get(position);
                 Intent intent = new Intent(FriendsFragment.this.getActivity(), SetUpMessageActivity.class);
                 intent.putExtra("sendTo", userClicked.getUsername()); // To add the contact the message is being sent to
+                intent.putExtra("recipientId", userClicked.getObjectId());
                 startActivity(intent);
             }
         });
